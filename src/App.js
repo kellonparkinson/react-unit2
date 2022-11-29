@@ -1,8 +1,8 @@
 import './App.css'
-import Header from './components/Header'
-
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+
+import Header from './components/Header'
 
 function App() {
   const [movieList, setMovieList] = useState([])
