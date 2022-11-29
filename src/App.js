@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 import Header from './components/Header'
+import MovieScreen from './components/MovieScreen'
 
 function App() {
   const [movieList, setMovieList] = useState([])
@@ -23,6 +24,15 @@ function App() {
   return (
     <div className="App">
       <Header />
+
+      <main>
+        <MovieScreen
+          watchList={watchList}
+          page={page}
+          setPage={setPage}
+          movieList={movieList}
+        />
+      </main>
     </div>
   )
 }
