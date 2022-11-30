@@ -4,10 +4,11 @@ import axios from 'axios'
 
 import Header from './components/Header'
 import MovieScreen from './components/MovieScreen'
+import Watchlist from './components/Watchlist'
 
 function App() {
   const [movieList, setMovieList] = useState([])
-  const [watchList, setWatchList] = useState([])
+  const [watchlist, setWatchlist] = useState([])
   const [page, setPage] = useState(1)
 
   const getData = () => {
@@ -21,17 +22,23 @@ function App() {
     getData()
   }, [page])
 
+  const addMovie = (movie) => {
+    setWatchlist([...watchlist, movie])
+  }
+
   return (
     <div className="App">
       <Header />
 
       <main>
         <MovieScreen
-          watchList={watchList}
+          watchlist={watchlist}
           page={page}
           setPage={setPage}
           movieList={movieList}
+          addMovie={addMovie}
         />
+        <Watchlist watchlist={watchlist} />
       </main>
     </div>
   )
